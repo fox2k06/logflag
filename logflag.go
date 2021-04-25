@@ -56,7 +56,7 @@ var (
 )
 
 func init() {
-	flag.Var(&logflags, "log", "log `flags`, several allowed [trace|debug,info,warn,error,fatal,color,nocolor,json]")
+	flag.Var(&logflags, "log", "log `flags`, several allowed [trace,debug,info,warn,error,fatal,color,nocolor,json]")
 }
 
 // Parse parses the -log flags and initializes the default logrus logger.
