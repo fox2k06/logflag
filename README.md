@@ -6,7 +6,7 @@ Simply import package and call `logflag.Parse()` after `flag.Parse()`.
 
 This adds a `-log` multivalue flag to your command line with the following possible values:
 
-- debug, info, warn, error, fatal: logging level
+- trace, debug, info, warn, error, fatal: logging level
 - color: force logrus to color output (text formatter)
 - nocolor: force logrus NOT to color output (text formatter)
 - json : use `logrus.JSONFormatter` to output logs in `JSON` format
@@ -46,6 +46,7 @@ func main() {
 
 	logrus.WithField("hello", str).Info("custom flag")
 
+	logrus.Trace("Trace log")
 	logrus.Debug("Debug log")
 	logrus.Info("Info log")
 	logrus.Warn("Warn log")
@@ -61,6 +62,6 @@ Usage of ./test:
   -hello string
         custom flag (default "world")
   -log flags
-        log flags, several allowed [debug,info,warn,error,fatal,color,nocolor,json]
+        log flags, several allowed [trace,debug,info,warn,error,fatal,color,nocolor,json]
 ```
 
