@@ -8,7 +8,7 @@ after
 
 This adds a "-log" multivalue flag to your command line with the following possible values:
 
-	- debug, info, warn, error, fatal: logging level
+	- trace, debug, info, warn, error, fatal: logging level
 	- color: force logrus to color output (text formatter)
 	- nocolor: force logrus NOT to color output (text formatter)
 	- json : use logrus.JSONFormatter to output logs in JSON format
@@ -50,13 +50,13 @@ func (s *stringslice) Set(value string) error {
 
 var (
 	logflags stringslice
-	levels   = regexp.MustCompile("^(debug|info|warn|error|fatal)$")
+	levels   = regexp.MustCompile("^(trace|debug|info|warn|error|fatal)$")
 	colors   = regexp.MustCompile("^(no)?colou?rs?$")
 	json     = regexp.MustCompile("^json$")
 )
 
 func init() {
-	flag.Var(&logflags, "log", "log `flags`, several allowed [debug,info,warn,error,fatal,color,nocolor,json]")
+	flag.Var(&logflags, "log", "log `flags`, several allowed [trace|debug,info,warn,error,fatal,color,nocolor,json]")
 }
 
 // Parse parses the -log flags and initializes the default logrus logger.
